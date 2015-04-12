@@ -50,14 +50,14 @@ func runGo(cmd *Command, args []string) {
 // entry name, fetches any necessary code, and returns a gopath
 // causing the specified dependencies to be used.
 func prepareGopath() (gopath string) {
-	dir, isDir := findGodeps()
+	dir, _ := findGodeps()
 	if dir == "" {
 		log.Fatalln("No Godeps found (or in any parent directory)")
 	}
-	if !isDir {
-		log.Fatalln(strings.TrimSpace(needSource))
-	}
-	return filepath.Join(dir, "Godeps", "_workspace")
+	// if !isDir {
+	// 	log.Fatalln(strings.TrimSpace(needSource))
+	// }
+	return filepath.Join(dir, ".godeps", "_workspace")
 }
 
 // findGodeps looks for a directory entry "Godeps" in the

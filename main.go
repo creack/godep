@@ -60,6 +60,7 @@ var commands = []*Command{
 }
 
 func main() {
+	println("creack's fork")
 	flag.Usage = usageExit
 	flag.Parse()
 	log.SetFlags(0)
